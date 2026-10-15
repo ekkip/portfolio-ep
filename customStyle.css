@@ -1,0 +1,48 @@
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('IBM Plex Sans Regular'), local('IBM-Plex-Sans-Regular'), url(./fonts/IBMPlexSans-Regular.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: local('IBM Plex Sans Medium'), local('IBM-Plex-Sans-Medium'), url(./fonts/IBMPlexSans-Medium.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: local('IBM Plex Sans SemiBold'), local('IBM-Plex-Sans-SemiBold'), url(./fonts/IBMPlexSans-SemiBold.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('IBM Plex Sans Bold'), local('IBM-Plex-Sans-Bold'), url(./fonts/IBMPlexSans-Bold.woff) format('woff');
+}
+
+/********************/
+
+@font-face {
+    font-family: 'Berlin Type';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Berlin Type Regular'), local('Berlin-Type-Regular'), url(./fonts/BerlinTypeWeb-Regular.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Berlin Type';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Berlin Type Bold'), local('Berlin-Type-Bold'), url(./fonts/BerlinTypeWeb-Bold.woff) format('woff');
+}
+
+/********************/
+/********************/
+

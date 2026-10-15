@@ -1,0 +1,78 @@
+<!doctype html>
+<html manifest="../manifest.appcache">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <link href="/customStyle.css" rel="stylesheet">
+  <link href="/dist/output.css" rel="stylesheet">
+</head>
+
+<body class="c-body">
+  <div class="relative overflow-x-hidden overflow-y-auto min-h-screen bg-white">
+
+    <div class="flex flex-wrap justify-center bg-gradient-to-br from-amber-400 to-amber-500">
+      <div class="w-full xl:w-1/2 p-[calc(2.5rem+2%)] md:p-[calc(3.5rem+2.5%)] xl:p-[calc(3.5rem+1.5%)]">
+        <div class="relative ml-auto mr-auto xl:mr-0 w-full max-w-4xl aspect-ipad11-l">
+          <video muted class="absolute" preload="auto" autoplay loop controls>
+            <source src="/video/ngt_dxdd_1280_br3-5.mp4" type="video/mp4" media="(max-width:640px)">
+            <source src="/video/ngt_dxdd_1920_br6-10.mp4" type="video/mp4" media="(max-width:768px)">
+            <source src="/video/ngt_dxdd_1280_br3-5.mp4" type="video/mp4" media="(max-width:1280px)">
+            <source src="/video/ngt_dxdd_1920_br6-10.mp4" type="video/mp4" media="(min-width:1280px)">
+            Your browser does not support the video tag.
+          </video>
+          <div class="absolute h-full w-full scale-[1.99] pointer-events-none bg-center bg-cover bg-[url('https://ekkehardpetzold.de/img/device_frame_ipad11_landscape_8bit_S@2x.png')] md:bg-[url('https://ekkehardpetzold.de/img/device_frame_ipad11_landscape_8bit@2x.png')]"></div>
+        </div>
+      </div>
+  
+      <div class="c-detail-desc-xl">
+        <div class="c-home"><a class="c-link" href="/index.html">Ekkehard Petzold<img src="/img/logo_black.svg" class="c-ep-logo"></a></div>
+        <div class="c-spacer"></div>
+        <div class="max-w-xl ml-auto xl:ml-0">
+          <div class="c-timeframe">2019/20</div>
+          <div class="c-title">City Tram Dresden</div>
+          <div class="c-subtitle">Mobile AR experience accompanying the launch exhibition of a new tram design for Dresden Transport Authority</div>
+          <div class="c-profile">
+            <b>Role</b><br>
+            Interaction design, ARKit coding<br>
+            <br>
+            <b>Cooperation</b><br>
+            <a href="https://buero-staubach.de" class="c-link" target="_blank">büro+staubach, Berlin</a><br>
+            <br>
+            <b>Client</b><br>
+            Public transport authority Dresden DVB
+          </div>
+        </div>
+        <!-- <div class="c-spacer"></div> -->
+      </div>
+    </div>
+
+    <div class="flex flex-wrap justify-center">
+      <div class="flex flex-wrap p-10 md:p-14 gap-y-10 justify-end xl:justify-center">
+        <div class="c-story-label-xl">
+          Background
+        </div>
+        <div class="c-story-text-xl">
+          In January 2020, Dresdner Verkehrsbetriebe AG unveiled the new tram design <a href="https://buero-staubach.de/project/tram-dresden" class="c-link-prom" target="_blank">NGT DXDD by büro+staubach</a>, dubbed City Tram Dresden, at Verkehrsmuseum Dresden. DVB had a life-size model of the front car and decided to complete it virtually with a companion AR app made available on handout iPads.
+        </div>
+        <div class="c-story-label-xl">
+          Details
+        </div>
+        <div class="c-story-text-xl">
+          <p>World-mapping was deployed to align the virtual model exactly with the physical one to allow for a seamless transition between the two.</p>
+          <p>To make the virtual model accessible over its full length of 43 meters within the constraints of the exhibition space, an animation function was added that moved the model forward when the user moved towards the rear end of the model.</p>
+          <p>To address the physical occlusion by the exhibition space's pillars, a location-dependent function was added to fade a virtual sky in and out.</p>
+          <p>Additionally, the AR experience contains spatial guidance to keep visitors within the exhibition area and aware of obstacles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <iframe class="c-menu-gradient" src="/menu.html"></iframe>
+</body>
+
+</html>

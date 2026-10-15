@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .c-body {
+        @apply font-body bg-gray-800;
+    }
+
+    .c-home {
+        /* @apply w-full text-2xl pt-6 md:pt-10 pl-10 md:pl-14 -mb-4; */
+        @apply text-lg mb-6 ml-auto xl:ml-0 w-[36rem] tracking-wide;
+    }
+
+    .c-logo {
+        @apply h-8 md:h-10 hover:scale-110 duration-100;
+    }
+
+    .c-ep-logo {
+        /* @apply inline h-8 lg:h-10 mr-[0.6rem] lg:mr-3 align-text-bottom */
+        @apply inline h-8 ml-[0.6rem] align-text-top;
+    }
+
+    .c-menu {
+        @apply w-full h-56;
+    }
+
+    .c-menu-gradient {
+        @apply w-full h-56 bg-gradient-to-br from-sky-700 to-sky-900;
+    }
+
+    .c-social-logo {
+        @apply h-6 inline hover:scale-125 duration-100;
+    }
+
+    .c-project {
+        @apply relative w-full h-[80vh] max-h-[45rem] 2xl:max-h-[60rem] overflow-hidden;
+    }
+
+    .c-proj-bg {
+        @apply absolute w-full h-full bg-no-repeat hover:scale-105 duration-1000;
+    }
+
+    .c-proj-desc {
+        @apply absolute w-full h-full flex flex-col pointer-events-none p-10 lg:p-14 2xl:p-24;
+    }
+
+    .c-detail-desc-lg {
+        @apply flex flex-col w-full lg:w-1/2 px-10 pb-10 pt-2 md:px-14 md:pb-14 lg:p-14 lg:pl-0;
+    }
+
+    .c-detail-desc-xl {
+        @apply flex flex-col w-full xl:w-1/2 px-10 pb-10 pt-2 md:px-14 md:pb-14 xl:p-14 xl:pl-0;
+    }
+
+    .c-align-bottom {
+        @apply justify-end;
+    }
+
+    .c-align-right {
+        @apply items-end float-right text-right;
+    }
+
+    .c-timeframe {
+        @apply mb-1 text-lg;
+    }
+
+    .c-title {
+        @apply text-4xl lg:text-5xl font-semibold;
+    }
+
+    .c-subtitle {
+        @apply text-2xl lg:text-3xl font-medium mt-4 max-w-xl;
+    }
+
+    .c-profile {
+        @apply mt-8 text-lg;
+    }
+
+    .c-spacer {
+        @apply flex-grow hidden lg:flex;
+    }
+    .c-spacer-minus {
+        @apply flex-grow hidden lg:flex -mb-16;
+    }
+
+    .c-store-button {
+        @apply h-full opacity-60 hover:opacity-80 hover:scale-105 duration-200;
+    }
+
+    .c-story-label-lg {
+        @apply w-full max-w-xl lg:w-1/2 lg:pr-14 text-xl font-bold lg:text-right;
+    }
+
+    .c-story-text-left-lg {
+        @apply w-full max-w-xl lg:w-1/2 lg:pr-14 text-xl;
+    }
+
+    .c-story-emptylabel-lg {
+        @apply w-full max-w-xl lg:w-1/2 lg:pr-14 hidden lg:flex;
+    }
+
+    .c-story-label-xl {
+        @apply w-full max-w-xl lg:w-80 xl:w-1/2 lg:pr-14 text-xl font-bold lg:text-right;
+    }
+
+    .c-story-text-left-xl {
+        @apply w-full max-w-xl lg:w-80 xl:w-1/2 lg:pr-14 text-xl;
+    }
+
+    .c-story-emptylabel-xl {
+        @apply w-full max-w-xl lg:w-80 xl:w-1/2 lg:pr-14 hidden lg:flex;
+    }
+
+    .c-story-text-lg {
+        @apply text-xl w-full max-w-xl lg:w-1/2 lg:pl-0;
+    }
+
+    .c-story-text-xl {
+        @apply text-xl w-full max-w-xl xl:w-1/2 xl:pl-0;
+    }
+
+    .c-link {
+        @apply hover:underline underline-offset-2;
+    }
+
+    .c-link-prom {
+        @apply underline underline-offset-2;
+    }
+
+    .c-media {
+       @apply rounded-lg shadow-2xl w-full; 
+    }
+}    
