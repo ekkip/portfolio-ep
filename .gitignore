@@ -1,2 +1,8 @@
-_production-mirror/
 node_modules/
+_dropbox/
+_production-mirror/
+
+# Source archive extras (not linked from the site; exceed GitHub file size limit)
+video/RPReplay_Final1578051979.mp4
+video/ngt_dxdd_1920_original.mp4
+video/GrashuepfAR_Trailer_1920_b6-15.mp4

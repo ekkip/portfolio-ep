@@ -1,24 +1,47 @@
 # portfolio-ep
 
-Portfolio site for [ekkehardpetzold.de](https://ekkehardpetzold.de).
+Source for [ekkehardpetzold.de](https://ekkehardpetzold.de) — static HTML, Tailwind CSS, and project detail pages.
 
-## Migration status
+## Setup
 
-The production site is static HTML plus compiled `dist/output.css`. To keep a proper Tailwind workflow (`tailwind.config.js`, source CSS with component classes, build scripts), please add your **local source folder** to this repository.
+```bash
+npm install
+npm run build:css
+```
 
-### How to provide the source
+## Local preview
 
-1. Zip your project folder (the one you deploy from), or
-2. Copy its contents into this repo root (or into a `source/` subfolder), then push or attach it in the agent chat.
+```bash
+npm run dev
+```
 
-Typical files we expect:
+Open [http://localhost:8000/](http://localhost:8000/). CSS is served with no-cache headers (see `dev-server.py`).
 
-- `package.json` and Tailwind/PostCSS config
-- Source CSS (e.g. `src/input.css` or similar) with `@layer` / component styles
-- All HTML, `customStyle.css`, fonts, `img/`, `video/`, etc.
+During development:
 
-Once the source is here, the agent will wire up `npm install`, CSS build, local preview, and a clean git layout (including `.gitignore` / Git LFS for large media if needed).
+```bash
+npm run watch:css
+```
 
-### Interim mirror
+## Deploy (original workflow)
 
-A partial copy was pulled from production for reference (HTML, some assets, compiled CSS). It is **not** a substitute for your source tree.
+`build-and-deploy.py` compiles Tailwind, copies assets to a deploy folder, and adds cache-busting query strings on CSS links. Set the destination:
+
+```bash
+export DEPLOY_TARGET=/path/to/your/web/root
+python3 build-and-deploy.py
+```
+
+On macOS, the default `DEPLOY_TARGET` still points at the previous CloudMounter path.
+
+## Structure
+
+| Path | Purpose |
+|------|---------|
+| `index.html`, `projects/` | Pages |
+| `src/input.css` | Tailwind source (component classes `c-*`) |
+| `customStyle.css` | Webfont `@font-face` rules |
+| `dist/output.css` | Compiled CSS (commit after build, or rebuild locally) |
+| `img/`, `video/`, `fonts/` | Media |
+
+Three unused `.mp4` files in `video/` are listed in `.gitignore` because they exceed GitHub’s 100 MB per-file limit. They remain in the Dropbox source archive if you need them locally.
