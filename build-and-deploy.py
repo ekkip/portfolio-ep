@@ -36,7 +36,8 @@ def add_version_to_css_links(content, version):
     patterns = [
         (r'href="(/customStyle\.css)(\?[^"]*)?(")', rf'href="\1?v={version}\3'),
         (r'href="(/dist/output\.css)(\?[^"]*)?(")', rf'href="\1?v={version}\3'),
-        # Also handle relative paths in case any remain
+        (r'href="(customStyle\.css)(\?[^"]*)?(")', rf'href="\1?v={version}\3'),
+        (r'href="(dist/output\.css)(\?[^"]*)?(")', rf'href="\1?v={version}\3'),
         (r'href="(\./customStyle\.css)(\?[^"]*)?(")', rf'href="\1?v={version}\3'),
         (r'href="(\./dist/output\.css)(\?[^"]*)?(")', rf'href="\1?v={version}\3'),
         (r'href="(\.\./customStyle\.css)(\?[^"]*)?(")', rf'href="\1?v={version}\3'),
