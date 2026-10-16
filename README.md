@@ -17,6 +17,12 @@ npm run dev
 
 Open [http://localhost:8000/](http://localhost:8000/). CSS is served with no-cache headers (see `dev-server.py`).
 
+Asset paths are **relative** (not root-absolute `/…`) so the site works on [GitHub Pages project URLs](https://ekkip.github.io/portfolio-ep/) and on a custom domain at the site root. After changing Tailwind classes with background images, run `npm run build:css` — those URLs are resolved from `dist/output.css`, so use `../img/…` in HTML classes.
+
+## GitHub Pages
+
+Pushes to `main` run `.github/workflows/pages.yml` (build CSS, deploy). In repo **Settings → Pages**, source should be **GitHub Actions**. Preview: `https://ekkip.github.io/portfolio-ep/`.
+
 During development:
 
 ```bash
