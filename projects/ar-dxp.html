@@ -68,54 +68,21 @@
         <div class="c-story-label-xl">
           Details
         </div>
-        <div class="c-story-text-left-xl">
-          <div class="w-full lg:w-[96%] float-right">
-            <img class="c-media" src="./img/proj_detail_ar-dxp-vis-idioms_2x4.png">
-          </div>
-        </div>
         <div class="c-story-text-xl">
-          From an early point in the project, we experimented with a marker-based hand interaction system to not be dependent on touch-based interaction. As we realised that this was more engaging and fun, I developed it into a cube system with interlocking sides that doubled as a reward collection system. As the game unfolds, collected physical reward items double as puzzle pieces that complete a cubic multi-2D marker.          
-        </div>
-
-        <div class="c-story-text-left-xl">
-          In our exploration of a design space for situated visualizations of temporal data in an urban environment, we focus on crafting experiences where the visualization is intricately tied to its physical and perceptual context. We introduce several key design characteristics:
-        </div>
-        <div class="c-story-text-xl">
-          <p><b>Temporal Directionality:</b> Rendering temporal data in embedded visualizations challenges the conventional representation of time. It accounts for cultural differences in perceiving time and investigates how the observer's position can alter perceived flow directions in visualizations.</p>
-          <p><b>Temporal Situatedness:</b> Refers to the alignment of the data's temporal context with the actual observation time, enhancing relevance and immediacy. It differentiates between live, historic, and predictive data, emphasizing temporal situatedness for its immediate contextual alignment in urban environments.</p>
-          <p><b>Spatial Proportions:</b> This aspect combines abstract data visualization methods with real-world scales, such as adapting a visualization's scale to match the dimension of a building. This integration helps link data more intuitively to physical urban elements, enriching user interaction and comprehension.</p>
-          <p><b>Visualization Idioms:</b> Focuses on selecting and refining visualization techniques suitable for embedding data into urban contexts. This includes choosing between discrete or continuous temporal scales, deciding the cardinality of the viewpoint, and effectively using spatial positioning to represent different data attributes like traffic volume.</p>
+          <p>My main contribution was to turn the project’s design space into a location-based AR experience on site. I laid the georeferential groundwork in Unity: placing the data experience point at its source location, two lanes of a central junction in Mannheim, anchoring embedded views to the lane geometry, and keeping charts aligned with the street as users move at pedestrian scale.</p>
+          <p>Live vehicle counts from on-site computer-vision tracking (Smart City Mannheim), provided by an API, fed the temporal views.</p>
+          <p>On that foundation, I implemented a selection of spatial visualisation idioms of the same traffic stream, so we could compare how embedding, temporal granularity, and spatial proportions read in the real environment rather than only in design sketches.</p>
+          <p>I also explored various interaction paradigms for these situated views, like manipulating the timeline directly by scrubbing the 3D objects, or a labeling system that stays oriented toward the viewer by billboarding and switching positions.</p>
         </div>
 
         <div class="c-story-emptylabel-xl"></div>
         <div class="c-story-text-xl">
-          <p>We demonstrate the feasibility of our designs in real-world settings through a mobile application utilizing location-based augmented reality. In our demonstrator, we chose street-level traffic such as cars, motorcycles, and trucks, due to their prevalence in central urban locations and their proximity to pedestrians. We used computer-vision based tracking systems installed at locations that track and classify individual vehicles into traffic categories from our Smart City project in Mannheim.</p>
+          <a href="https://www.hdilab.org/projects/ar-dxp/" target="_blank" rel="noopener">
+            <img class="c-media" src="../img/proj_detail_ar-dxp-app-3vis.jpg" alt="Three AR views of traffic embedded in two street lanes: grouped area chart, ridge plot, and stacked area chart.">
+          </a>
         </div>
         <div class="c-story-text-xl">
-          <img class="c-media" src="../img/proj_detail_FutureUX_doc1.jpg">
-        </div>
-
-        <div class="c-story-emptylabel-xl"></div>
-        <div class="c-story-text-xl">
-          <img class="c-media" src="../img/proj_detail_FutureUX_doc2.jpg">
-        </div>
-
-        <div class="c-story-text-left-xl">
-          In post production, we added high-quality rendered versions of the AR visualisations from Houdini.
-        </div>
-        <div class="c-story-text-xl">
-          <video muted class="c-media" preload="auto" autoplay loop controls>
-            <source src="../video/FutureUX_1_Intro_1920.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        <div class="c-story-emptylabel-xl"></div>
-        <div class="c-story-text-xl">
-          <video muted class="c-media" preload="auto" autoplay loop controls>
-            <source src="../video/FutureUX_3_Correlation_1920.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <p>The screenshot shows three idioms I implemented side by side on the two lanes—grouped area chart, ridge plot across two temporal granularities, and stacked area chart—following the design characteristics described on the <a href="https://www.hdilab.org/projects/ar-dxp/" class="c-link-prom" target="_blank">HDILab project page</a> (EuroVis 2024 publication and preview video linked there).</p>
         </div>
       </div>
 
