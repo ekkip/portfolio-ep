@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      rebuild_tailwind:
+        description: Rebuild Tailwind CSS (required for new/changed utility classes)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -19,12 +24,47 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        if: github.event_name == 'push'
+        id: changes
+        with:
+          filters: |
+            tailwind:
+              - 'src/**'
+              - 'tailwind.config.js'
+              - 'package.json'
+              - 'package-lock.json'
+
+      - name: Decide whether to rebuild Tailwind
+        id: css
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            rebuild="${{ inputs.rebuild_tailwind }}"
+          elif [[ "${{ steps.changes.outputs.tailwind }}" == "true" ]]; then
+            rebuild="true"
+          else
+            rebuild="false"
+          fi
+          echo "rebuild=$rebuild" >> "$GITHUB_OUTPUT"
+          if [[ "$rebuild" == "true" ]]; then
+            echo "Running npm ci and Tailwind build."
+          else
+            echo "Skipping Tailwind — deploying HTML/assets with committed dist/output.css."
+          fi
+
       - uses: actions/setup-node@v4
+        if: steps.css.outputs.rebuild == 'true'
         with:
           node-version: "20"
           cache: npm
+
       - run: npm ci
+        if: steps.css.outputs.rebuild == 'true'
+
       - run: npm run build:css
+        if: steps.css.outputs.rebuild == 'true'
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
