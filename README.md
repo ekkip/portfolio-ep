@@ -29,6 +29,21 @@ Pushes to `main` run `.github/workflows/pages.yml`. In repo **Settings → Pages
 
 After a green deploy, hard-refresh the browser; GitHub’s CDN may cache HTML for up to ~10 minutes.
 
+Project videos (~1.1 GB) are served from **Cloudflare R2** at `https://media.ekkehardpetzold.de/video/…`. GitHub Pages deploys **omit** the local `video/` folder (see workflow). Videos remain in git until you remove them after R2 upload.
+
+### Cloudflare R2 (one-time + when videos change)
+
+1. Add **ekkehardpetzold.de** to your Cloudflare account (Free plan). Nameservers can stay at All-Inkl.
+2. Cloud Agent **runtime secrets** (or local shell): `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`. Optional: `CLOUDFLARE_ZONE_ID`.
+3. From repo root:
+
+```bash
+bash scripts/setup-r2-media.sh
+```
+
+4. If DNS is at All-Inkl, add the **CNAME** for `media` that the script prints (or Cloudflare dashboard → R2 → bucket → custom domain).
+5. Merge site changes that point HTML at the CDN URL, then deploy.
+
 During development:
 
 ```bash
