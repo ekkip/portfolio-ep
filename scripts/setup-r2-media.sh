@@ -39,7 +39,7 @@ for f in "${files[@]}"; do
   key="video/$(basename "$f")"
   echo "    ${key}"
   "${WRANGER[@]}" r2 object put "${BUCKET}/${key}" --file "$f" --content-type video/mp4 \
-    --cache-control "public, max-age=31536000, immutable"
+    --cache-control "public, max-age=31536000, immutable" --remote
 done
 
 ZONE_ID="${CLOUDFLARE_ZONE_ID:-}"
