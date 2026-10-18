@@ -21,11 +21,11 @@ export CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID
 WRANGER=(npx wrangler)
 
 echo "==> Wrangler account"
-"${WRANGLER[@]}" whoami
+"${WRANGER[@]}" whoami
 
 echo "==> Create bucket (idempotent): ${BUCKET} (${LOCATION})"
-if ! "${WRANGLER[@]}" r2 bucket list | grep -q "${BUCKET}"; then
-  "${WRANGLER[@]}" r2 bucket create "${BUCKET}" --location "${LOCATION}"
+if ! "${WRANGER[@]}" r2 bucket list | grep -q "${BUCKET}"; then
+  "${WRANGER[@]}" r2 bucket create "${BUCKET}" --location "${LOCATION}"
 fi
 
 echo "==> Upload video/*.mp4 to s3://${BUCKET}/video/"
@@ -38,7 +38,7 @@ fi
 for f in "${files[@]}"; do
   key="video/$(basename "$f")"
   echo "    ${key}"
-  "${WRANGLER[@]}" r2 object put "${BUCKET}/${key}" --file "$f" --content-type video/mp4 \
+  "${WRANGER[@]}" r2 object put "${BUCKET}/${key}" --file "$f" --content-type video/mp4 \
     --cache-control "public, max-age=31536000, immutable"
 done
 
@@ -52,17 +52,17 @@ fi
 
 if [[ -n "${ZONE_ID}" ]]; then
   echo "==> Connect custom domain ${MEDIA_HOST} (zone ${ZONE_ID})"
-  if ! "${WRANGLER[@]}" r2 bucket domain list "${BUCKET}" 2>/dev/null | grep -q "${MEDIA_HOST}"; then
-    "${WRANGLER[@]}" r2 bucket domain add "${BUCKET}" --domain "${MEDIA_HOST}" --zone-id "${ZONE_ID}" -y
+  if ! "${WRANGER[@]}" r2 bucket domain list "${BUCKET}" 2>/dev/null | grep -q "${MEDIA_HOST}"; then
+    "${WRANGER[@]}" r2 bucket domain add "${BUCKET}" --domain "${MEDIA_HOST}" --zone-id "${ZONE_ID}" -y
   fi
   echo ""
   echo "--- DNS (All-Inkl KAS) ---"
   echo "If Cloudflare does not auto-manage this record, add a CNAME for media → value shown below:"
-  "${WRANGLER[@]}" r2 bucket domain get "${BUCKET}" || true
+  "${WRANGER[@]}" r2 bucket domain get "${BUCKET}" || true
 else
   echo "==> No zone id — enable r2.dev for smoke test"
-  "${WRANGLER[@]}" r2 bucket dev-url enable "${BUCKET}" -y || true
-  "${WRANGLER[@]}" r2 bucket dev-url get "${BUCKET}" || true
+  "${WRANGER[@]}" r2 bucket dev-url enable "${BUCKET}" -y || true
+  "${WRANGER[@]}" r2 bucket dev-url get "${BUCKET}" || true
   echo "Add ekkehardpetzold.de to Cloudflare (DNS can stay at All-Inkl), set CLOUDFLARE_ZONE_ID, re-run."
 fi
 
