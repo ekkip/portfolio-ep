@@ -21,7 +21,13 @@ Asset paths are **relative** (not root-absolute `/…`) so the site works on [Gi
 
 ## GitHub Pages
 
-Pushes to `main` run `.github/workflows/pages.yml` (build CSS, deploy). In repo **Settings → Pages**, source should be **GitHub Actions**. Preview: `https://ekkip.github.io/portfolio-ep/`.
+Pushes to `main` run `.github/workflows/pages.yml`. In repo **Settings → Pages**, source should be **GitHub Actions**.
+
+- **HTML-only edits** (copy, structure, reusing classes already on the site): the workflow **skips** `npm` and deploys with the committed `dist/output.css` — usually much faster.
+- **Tailwind source changes** (`src/`, `tailwind.config.js`, `package.json`): full CSS rebuild runs automatically.
+- **New Tailwind classes** not yet in `dist/output.css`: either touch a Tailwind source file in the same commit, or run **Actions → Deploy GitHub Pages → Run workflow** with **Rebuild Tailwind CSS** enabled.
+
+After a green deploy, hard-refresh the browser; GitHub’s CDN may cache HTML for up to ~10 minutes.
 
 During development:
 
