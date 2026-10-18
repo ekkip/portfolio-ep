@@ -65,6 +65,9 @@ jobs:
       - run: npm run build:css
         if: steps.css.outputs.rebuild == 'true'
 
+      - name: Omit local video files (served from Cloudflare R2)
+        run: rm -rf video
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
